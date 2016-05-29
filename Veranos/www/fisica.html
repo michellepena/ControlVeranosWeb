@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>New design for mobifreaks</title>
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0" />
+		<link rel="stylesheet" href="css/style.css" type="text/css"/>
+        <link href="css/demo.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script>
+		 	function init() {
+			
+			  $.getJSON('http://10.8.16.94/tec/tecrespuestafisica.php',function(data){
+				console.log(JSON.stringify(data));
+					var datos;
+					var tr;
+						for (var i = 0; i < data.length; i++) {
+							tr = $('<tr/>');
+								tr.append("<td>" + data[i].ID + "</td>");
+								tr.append("<td>" + data[i].nombre + "</td>");
+								tr.append("<td>" + data[i].numero + "</td>");
+								tr.append("<td>" + data[i].telefono + "</td>");
+							$('#tabla').append(tr);
+						}
+						
+			
+			  
+			  });
+			}
+		</script>
+	</head>
+	<body onload="init();">
+	<div class="wrap">
+		<header class="header">
+			<div class="logo"><a href="index2.html"><img src="img/back.png" alt=""/></a></div>
+			<div class="menu-but"><h1>Física</h1><br>
+			<h6>Profesor: Andrés Hernandez</h6></div>
+			
+		</header>
+			<hr class="separator"/>
+			<div  id="contenedor">
+			<h2>Inscritos</h2>
+		<table id="tabla" border="1px solid black">
+			<tr>
+				<th >ID</th>
+				<th>nombre</th>
+				<th>numero</th>
+				<th>telefono</th>
+			</tr>
+		</table>
+		<br>
+			
+			
+			<div id="sub" >
+			<a href="registrofisica.html"><h3>Registrarme</h3></a>
+				
+		
+				
+			</div>	
+
+			    
+			      
+			
+		</div> 
+		
+		<hr class="separator"/>
+				<aside>
+					<a name="menu"></a>
+						<ul class="menu">
+							<li class="icon home"><a href="index2.html">Inicio</a></li>
+							
+							<li class="icon bubble"><a href="contact.html">Contactanos</li>
+							
+						</ul>
+				</aside><!-- container -->
+		<hr class="separator"/>
+		<footer class="footer">
+			<p>&copy All rights Reserved.</p>
+			
+		</footer>
+		
+		</div>
+	
+
+	</body>
+</html>
